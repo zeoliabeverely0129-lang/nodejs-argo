@@ -11,5 +11,5 @@ RUN apk update && apk upgrade && \
     curl -L -o /assets/bot_amd64 https://amd64.ssss.nyc.mn/bot && \
     curl -L -o /assets/web_arm64 https://arm64.ssss.nyc.mn/web && \
     curl -L -o /assets/bot_arm64 https://arm64.ssss.nyc.mn/bot && \
-    chmod +x /assets/web_amd64 /assets/bot_amd64 /assets/web_arm64 /assets/bot_arm64
-CMD ["node", "index.js"]
+    chmod +x /assets/web_amd64 /assets/bot_amd64 /assets/web_arm64 /assets/bot_arm64    
+CMD ["node", "--unhandled-rejections=throw", "index.js"]
