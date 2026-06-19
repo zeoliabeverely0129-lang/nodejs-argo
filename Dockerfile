@@ -6,14 +6,10 @@ RUN apk update && apk upgrade && \
     apk add --no-cache openssl curl gcompat iproute2 coreutils bash && \
     chmod +x index.js && \
     npm install && \
-    mkdir -p /tmp/.tmp && \
-    ARCH=$(uname -m) && \
-    if [ "$ARCH" = "aarch64" ]; then \
-        curl -L -o /tmp/.tmp/web https://arm64.ssss.nyc.mn/web && \
-        curl -L -o /tmp/.tmp/bot https://arm64.ssss.nyc.mn/bot; \
-    else \
-        curl -L -o /tmp/.tmp/web https://amd64.ssss.nyc.mn/web && \
-        curl -L -o /tmp/.tmp/bot https://amd64.ssss.nyc.mn/bot; \
-    fi && \
-    chmod +x /tmp/.tmp/web /tmp/.tmp/bot
+    mkdir -p /assets && \
+    curl -L -o /assets/web_amd64 https://amd64.ssss.nyc.mn/web && \
+    curl -L -o /assets/bot_amd64 https://amd64.ssss.nyc.mn/bot && \
+    curl -L -o /assets/web_arm64 https://arm64.ssss.nyc.mn/web && \
+    curl -L -o /assets/bot_arm64 https://arm64.ssss.nyc.mn/bot && \
+    chmod +x /assets/web_amd64 /assets/bot_amd64 /assets/web_arm64 /assets/bot_arm64
 CMD ["node", "index.js"]
