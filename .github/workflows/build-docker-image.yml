@@ -44,7 +44,6 @@ jobs:
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=HTTP Server
             org.opencontainers.image.licenses=MIT
-          # 强制不使用缓存，重新构建
-          no-cache: true        # ←←← 加在这里
+ 
           cache-from: type=gha
           cache-to: type=gha,mode=max
